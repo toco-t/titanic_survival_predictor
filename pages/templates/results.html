@@ -1,0 +1,31 @@
+{% extends "template.html" %}
+
+{% block content %}
+    {% if error_message %}
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Titanic Survival Predictor</h1>
+        <div class="card">
+            <div class="card-body">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ error_message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <a href="/prediction" class="btn btn-outline-primary">Back to Prediction</a>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Titanic Survival Predictor</h1>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Results</h5>
+                <p class="card-text">Based on the information you provided, the model predicts that you would have <strong>{{ prediction }}</strong> the Titanic.</p>
+                <a href="/prediction" class="btn btn-outline-primary">Back to Prediction</a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

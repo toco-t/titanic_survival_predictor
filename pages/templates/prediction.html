@@ -1,0 +1,88 @@
+{% extends "template.html" %}
+
+{% block content %}
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Titanic Survival Predictor</h1>
+        <form method="POST" action="/results/" class="my-5">
+            {% csrf_token %}
+            <div class="form-group row">
+                <label for="age" class="col-sm-3 col-form-label">Age Group</label>
+                <div class="col-sm-9">
+                    <select class="form-control" name="age">
+                        <option>Select your age group</option>
+                        {% for age_group in age_groups %}
+                        <option value="{{ age_group }}">{{ age_group }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="sex" class="col-sm-3 col-form-label">Sex</label>
+                <div class="col-sm-9">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="sex" value="male">
+                        <label class="form-check-label">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="sex" value="female">
+                        <label class="form-check-label">Female</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="fare" class="col-sm-3 col-form-label">Fare</label>
+                <div class="col-sm-9">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">£</span>
+                        </div>
+                        <input type="number" class="form-control" name="fare" placeholder="Enter your fare amount">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="socio-economic" class="col-sm-3 col-form-label">Socio-economic Status</label>
+                <div class="col-sm-9">
+                    <select class="form-control" name="socio-economic">
+                        <option>Select your socio-economic status</option>
+                        <option>Low</option>
+                        <option>Middle</option>
+                        <option>High</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="siblings-spouses" class="col-sm-3 col-form-label"># of Siblings/Spouses Aboard</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" name="siblings-spouses" placeholder="Enter the number of siblings/spouses aboard">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="parents-children" class="col-sm-3 col-form-label"># of Parents/Children Aboard</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" name="parents-children" placeholder="Enter the number of parents/children aboard">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="cabin" class="col-sm-3 col-form-label">Cabin No. (optional)</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="cabin" placeholder="Enter your cabin information">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="port" class="col-sm-3 col-form-label">Port</label>
+                <div class="col-sm-9">
+                    <select class="form-control" name="port">
+                        <option>Select your port of embarkation</option>
+                        {% for port in ports %}
+                        <option value="{{ port }}">{{ port }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="text-center col">
+                <button type="submit" class="btn btn-primary w">Predict Survival</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "template.html" %}
+
+{% block content %}
+    <div class="container my-5">
+        <header class="jumbotron">
+            <h1 class="display-4 text-center ">Titanic Survival Predictor</h1>
+            <p class="lead text-center">Predict your chances of survival on the Titanic.</p>
+        </header>
+
+        <section class="my-5">
+            <h2>About the App</h2>
+            <p>The Titanic Survival Predictor is a web application that uses machine learning to predict whether a passenger on the Titanic would have survived the disaster based on their personal information.</p>
+            <p>The model was trained on the historical data of Titanic passengers, including factors such as age, sex, socio-economic status, and cabin information.</p>
+            <p>By inputting your personal details, the app can provide you with an estimate of your chances of survival had you been on the Titanic.</p>
+        </section>
+
+        <section class="my-5">
+            <h2>How to Use the App</h2>
+            <p>To use the Titanic Survival Predictor, simply fill out the form on the main page with the following information:</p>
+            <ul>
+                <li>Age group</li>
+                <li>Sex (Male, Female)</li>
+                <li>Socio-economic status (Low, Middle, High)</li>
+                <li>Number of siblings/spouses aboard</li>
+                <li>Number of parents/children aboard</li>
+                <li>Cabin information (optional)</li>
+                <li>Port of embarkation (Cherbourg, Queenstown, Southampton)</li>
+            </ul>
+            <p>Once you've filled out the form, click the "Predict Survival" button to see the estimated probability of your survival.</p>
+        </section>
+
+        <section class="my-5">
+            <h2>About the Data</h2>
+            <p>The Titanic dataset used to train the machine learning model is a well-known dataset in the data science community. It contains information about 891 Titanic passengers, including whether they survived or not.</p>
+            <p>The dataset has been cleaned and preprocessed to ensure high-quality data for training the model. The model has been carefully tuned and validated to provide accurate predictions.</p>
+        </section>
+
+        <section class="my-5">
+            <h2>Get Started</h2>
+            <p>Ready to see your chances of survival on the Titanic? Click the button below to access the main app and start your prediction.</p>
+            <div class="text-center">
+                <a href="prediction/" class="btn btn-primary btn-lg">PREDICT</a>
+            </div>
+        </section>
+    </div>
+{% endblock %}
